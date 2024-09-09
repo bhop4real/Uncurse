@@ -2,6 +2,7 @@ import os
 import json
 from .find_root import find_root_directory
 from .zhcn_detections import detect_inappropriate_chinese
+from .jp_detections import detect_inappropriate_japanese
 
 # Locate the root directory
 root_dir = find_root_directory(os.path.dirname(__file__))
@@ -79,8 +80,13 @@ def detect_inappropriate_english(text):
     return False  # Clean text
 
 
-# Main detection function that handles both English and Chinese
-def detect(text, language="english"):
-    if language == "chinese":
+# Add a detection function for different languages
+def detect(text, language):
+    if language == "english":
+        return detect_inappropriate_english(text)
+    elif language == "chinese":
         return detect_inappropriate_chinese(text)
-    return detect_inappropriate_english(text)
+    elif language == "japanese":
+        return detect_inappropriate_japanese(text)  # Handle Japanese detection
+    else:
+        raise ValueError(f"Language '{language}' is not supported.")

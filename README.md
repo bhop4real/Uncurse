@@ -2,6 +2,10 @@
 
 **Uncurse** is a highly customizable inappropriate text detection tool that supports multiple languages with modular character mappings, exception handling, and advanced detection techniques.
 
+## Beta branch
+
+This branch is v2-beta/Socrates, may have gliches/bugs/flaws.
+
 ## Features
 
 - **Multi-language support**: Detects inappropriate text in (in theory) any languages.
